@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="探索南投中寮的熱門旅遊景點與在地特產，包括佛寺、瀑布、花園與伴手禮。適合親子、情侶及自然愛好者的完整導覽資訊。">
+  <meta name="keywords" content="南投, 中寮, 景點, 旅遊, 導覽, 特產, 法華寺, 龍鳳瀑布, 石龍宮, 心佛寺, 劉家梅園, 伴手禮">
+  <meta name="author" content="中寮旅遊導覽團隊">
+  <title>南投中寮景點導覽</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    header {
+      position: relative;
+      background-image: url('images/zhongliao-banner.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      font-size: 2.2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 12px 24px;
+      border-radius: 14px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav .lang-toggle button,
+    nav .nav-links a {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      color: #333;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+    .spot, .product, .itinerary {
+      max-width: 720px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 14px;
+      background-color: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .spot img, .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .spot h2, .product h2, .itinerary h2 {
+      margin-top: 0;
+      font-size: 1.6rem;
+      color: #222;
+    }
+    .spot p, .product p, .itinerary p {
+      line-height: 1.6;
+      color: #555;
+      margin: 6px 0;
+    }
+    .spot a, .product a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0066cc;
+      margin-right: 10px;
+    }
+    @media screen and (max-width: 768px) {
+      .spot, .product, .itinerary {
+        margin: 12px;
+        padding: 14px;
+      }
+      header h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+  <script>
+    function toggleLanguage(lang) {
+      const zhElems = document.querySelectorAll('.lang-zh');
+      const enElems = document.querySelectorAll('.lang-en');
+      zhElems.forEach(el => el.style.display = lang === 'zh' ? '' : 'none');
+      enElems.forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1 class="lang-zh">中寮景點介紹</h1>
+    <h1 class="lang-en" style="display:none">Zhongliao Attractions Guide</h1>
+  </header>
+
+  <nav>
+    <div class="nav-links">
+      <a href="#" class="lang-zh">首頁</a>
+      <a href="#" class="lang-en" style="display:none">Home</a>
+      <a href="#recommend" class="lang-zh">旅遊推薦</a>
+      <a href="#recommend" class="lang-en" style="display:none">Recommendations</a>
+      <a href="#products" class="lang-zh">中寮特產</a>
+      <a href="#products" class="lang-en" style="display:none">Local Products</a>
+      <a href="#itinerary" class="lang-zh">行程建議</a>
+      <a href="#itinerary" class="lang-en" style="display:none">Itineraries</a>
+    </div>
+    <div class="lang-toggle">
+      <button onclick="toggleLanguage('zh')">中文</button>
+      <button onclick="toggleLanguage('en')">EN</button>
+    </div>
+  </nav>
+
+  <div id="recommend">
+    <h2 class="lang-zh">旅遊推薦</h2>
+    <h2 class="lang-en" style="display:none">Recommendations</h2>
+  </div>
+
+  <div id="spots"></div>
+
+  <div id="products">
+    <h2 class="lang-zh">中寮特產</h2>
+    <h2 class="lang-en" style="display:none">Local Products</h2>
+    <div class="product">
+      <img src="images/plum-wine.jpg" alt="中寮梅子酒">
+      <h2 class="lang-zh">中寮梅子酒</h2>
+      <h2 class="lang-en" style="display:none">Zhongliao Plum Wine</h2>
+      <p class="lang-zh">以在地梅子釀造的香醇梅酒，風味濃郁，適合作為伴手禮。</p>
+      <p class="lang-en" style="display:none">Aromatic plum wine brewed from local plums, rich in flavor and perfect as a souvenir.</p>
+    </div>
+    <div class="product">
+      <img src="images/tea.jpg" alt="高山茶葉">
+      <h2 class="lang-zh">中寮高山茶</h2>
+      <h2 class="lang-en" style="display:none">Zhongliao High Mountain Tea</h2>
+      <p class="lang-zh">生長於中寮山區的茶葉，茶香濃厚，是當地驕傲的農特產品。</p>
+      <p class="lang-en" style="display:none">Grown in the mountains of Zhongliao, this tea boasts a rich aroma and is a local specialty.</p>
+    </div>
+  </div>
+
+  <div id="itinerary">
+    <h2 class="lang-zh">行程建議</h2>
+    <h2 class="lang-en" style="display:none">Recommended Itineraries</h2>
+    <div class="itinerary">
+      <h3 class="lang-zh">中寮一日遊</h3>
+      <h3 class="lang-en" style="display:none">One-Day Trip</h3>
+      <p class="lang-zh">上午參觀金龍山法華寺，接著前往龍鳳瀑布健行，午餐後造訪石龍宮祈福，下午在劉家梅園賞花，傍晚可至當地茶園體驗品茗。</p>
+      <p class="lang-en" style="display:none">Start your day at Jinlongshan Fahua Temple, hike to Longfeng Waterfall, visit Shilong Temple after lunch, enjoy plum blossoms at Liu’s Plum Garden, and end with a tea tasting experience.</p>
+    </div>
+    <div class="itinerary">
+      <h3 class="lang-zh">中寮二日遊</h3>
+      <h3 class="lang-en" style="display:none">Two-Day Trip</h3>
+      <p class="lang-zh">第一天走訪心佛寺靜心早課，接續參觀石龍宮與龍鳳瀑布；夜宿中寮特色民宿。第二天上午造訪金龍山法華寺與梅園，下午前往茶園與在地市集選購伴手禮。</p>
+      <p class="lang-en" style="display:none">Day 1: Morning meditation at Xin Fo Temple, followed by Shilong Temple and Longfeng Waterfall. Overnight at a local guesthouse. Day 2: Visit Fahua Temple and Liu’s Plum Garden, and spend the afternoon at a tea farm and local market for souvenirs.</p>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+const spots = [
+  {
+    img: "images/fahua.jpg",
+    title: "金龍山法華寺",
+    en_title: "Jinlongshan Fahua Temple",
+    desc: "座落於金龍山上的法華寺為當地著名的佛教道場，結合宗教與自然景觀，早晨雲海絕景令人驚豔。",
+    en_desc: "Located on Jinlong Mountain, Fahua Temple is a famous Buddhist site combining religion and nature, with stunning morning sea of clouds views.",
+    addr: "541南投縣中寮鄉永樂路106號",
+    time: "每日 06:00–18:00",
+    en_time: "Daily 06:00–18:00",
+    link: "https://travel.nantou.gov.tw/attractions/%E9%87%91%E9%BE%8D%E5%B1%B1%E6%B3%95%E8%8F%AF%E5%AF%BA/"
+  },
+  {
+    img: "images/waterfall.jpg",
+    title: "南投龍鳳瀑布",
+    en_title: "Nantou Longfeng Waterfall",
+    desc: "龍鳳瀑布擁有如畫美景，是健行愛好者的天堂，沿步道可近距離觀賞瀑布水流。",
+    en_desc: "Longfeng Waterfall offers picturesque views and is a paradise for hikers with close-up waterfall trails.",
+    addr: "541南投縣中寮鄉65號",
+    time: "全年無休",
+    en_time: "Open all year round",
+    link: "https://www.clfa.com.tw/play2.html"
+  },
+  {
+    img: "images/hibiscus.jpg",
+    title: "懶雲窩朱槿花育種推廣園區",
+    en_title: "Lazy Cloud Hibiscus Breeding and Promotion Park",
+    desc: "園區內種植多樣朱槿花品種，彩色花朵繽紛絢麗，適合親子與拍照愛好者前往。",
+    en_desc: "The park grows various hibiscus species with colorful blooms, ideal for families and photography lovers.",
+    addr: "541南投縣中寮鄉鄉林巷66-6號",
+    time: "每日 09:00–17:00",
+    en_time: "Daily 09:00–17:00",
+    link: "https://www.facebook.com/dreamhuthibiscus/?locale=zh_TW"
+  },
+  {
+    img: "images/shilong.jpg",
+    title: "中寮石龍宮",
+    en_title: "Zhongliao Shilong Temple",
+    desc: "香火鼎盛的石龍宮，據說祈求財運特別靈驗，是在地人信仰中心之一。",
+    en_desc: "The popular Shilong Temple is known for blessings of wealth and is a local spiritual center.",
+    addr: "541南投縣中寮鄉龍南路303號",
+    time: "每日 05:30–20:00",
+    en_time: "Daily 05:30–20:00",
+    link: "https://www.shilonggong.org/"
+  },
+  {
+    img: "images/pinkhill.jpg",
+    title: "粉紅山丘麝香木祕境",
+    en_title: "Pink Hill Muskwood Secret Spot",
+    desc: "麝香木花開時節整片山丘呈現粉紅海，極具浪漫氛圍，是情侶約會勝地。",
+    en_desc: "When muskwood flowers bloom, the hills turn into a pink sea, a romantic spot perfect for couples.",
+    addr: "541南投縣中寮鄉頂城巷39號",
+    time: "依花期調整",
+    en_time: "Seasonal, depending on flowering",
+    link: "https://www.facebook.com/p/%E7%B2%89%E7%B4%85%E5%B1%B1%E4%B8%98%E9%BA%9D%E9%A6%99%E6%9C%A8%E7%A7%98%E5%A2%83-100090492876346/?locale=zh_TW"
+  },
+  {
+    img: "images/xinfo.jpg",
+    title: "心佛寺",
+    en_title: "Xin Fo Temple",
+    desc: "心佛寺靜謐祥和，融合自然與禪意，是修行與靜心的絕佳場所。",
+    en_desc: "Xin Fo Temple offers tranquility and harmony, blending nature and Zen, perfect for meditation.",
+    addr: "541南投縣中寮鄉瀧林巷15之9號",
+    time: "每日 08:00–17:00",
+    en_time: "Daily 08:00–17:00",
+    link: ""
+  },
+  {
+    img: "images/meiyuan.jpg",
+    title: "劉家梅園",
+    en_title: "Liu’s Plum Garden",
+    desc: "每逢梅花盛開時，園區宛如雪白世界，是拍照與賞花的好去處。",
+    en_desc: "When plum blossoms bloom, the garden looks like a white snowy world, perfect for photos and flower viewing.",
+    addr: "541南投縣中寮鄉頂坑巷12號",
+    time: "依花季公告",
+    en_time: "Subject to flowering season",
+    link: "https://www.facebook.com/p/%E4%B8%AD%E5%AF%AE%E5%8A%89%E5%AE%B6%E7%99%BE%E5%B9%B4%E6%A2%85%E5%9C%92-100064034345619/?locale=zh_TW&_rdr"
+  }
+];
+
+      const container = document.getElementById('spots');
+      spots.forEach(spot => {
+        const el = document.createElement('div');
+        el.className = 'spot';
+        el.innerHTML = `
+          <img src="${spot.img}" alt="${spot.title}">
+          <h2 class="lang-zh">${spot.title}</h2>
+          <h2 class="lang-en" style="display:none">${spot.en_title}</h2>
+          <p class="lang-zh">${spot.desc}</p>
+          <p class="lang-en" style="display:none">${spot.en_desc}</p>
+          <p class="lang-zh"><strong>地址：</strong>${spot.addr}</p>
+          <p class="lang-en" style="display:none"><strong>Address:</strong> ${spot.addr}</p>
+          <p class="lang-zh"><strong>開放時間：</strong>${spot.time}</p>
+          <p class="lang-en" style="display:none"><strong>Hours:</strong> ${spot.en_time}</p>
+          ${spot.link ? `<a class="lang-zh" href="${spot.link}" target="_blank">更多介紹</a>` : ''}
+          ${spot.link ? `<a class="lang-en" style="display:none" href="${spot.link}" target="_blank">More Info</a>` : ''}
+          <a class="lang-zh" href="https://maps.google.com/?q=${encodeURIComponent(spot.addr)}" target="_blank">導航</a>
+          <a class="lang-en" style="display:none" href="https://maps.google.com/?q=${encodeURIComponent(spot.addr)}" target="_blank">Map</a>
+        `;
+        container.appendChild(el);
+      });
+    });
+  </script>
+</body>
+
+</html>
